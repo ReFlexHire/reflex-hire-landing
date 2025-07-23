@@ -1,0 +1,139 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "GitHub Pages 기반 프로젝트 초기 설정",
+        "description": "GitHub 저장소 생성 및 GitHub Pages 호스팅 환경 구축",
+        "details": "1. GitHub에서 새 저장소 생성 (reflexhire-landing)\n2. GitHub Pages 설정 활성화 (Settings > Pages > Source: Deploy from a branch)\n3. 기본 index.html 파일 생성하여 배포 테스트\n4. 도메인 연결 준비 (reflexhire.com)\n5. 기본 폴더 구조 생성: /css, /js, /images\n\n```html\n<!DOCTYPE html>\n<html lang=\"ko\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>ReFlexHire - 채용 수수료를 복지로</title>\n</head>\n<body>\n    <h1>ReFlexHire 준비 중...</h1>\n</body>\n</html>\n```",
+        "testStrategy": "GitHub Pages URL 접속하여 기본 페이지 로딩 확인, 모바일/데스크톱 반응형 테스트, 도메인 연결 상태 검증",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "기본 HTML 구조 및 CSS 프레임워크 구성",
+        "description": "index.html의 전체 레이아웃 구조 설계 및 반응형 CSS 기반 구축",
+        "details": "1. semantic HTML5 구조로 index.html 작성\n2. 모바일 우선 반응형 CSS 프레임워크 구성\n3. 신뢰감 있는 블루 계열 컬러 팔레트 정의\n4. 기본 타이포그래피 및 그리드 시스템 구축\n\n```html\n<body>\n  <header class=\"hero-section\"></header>\n  <section class=\"value-structure\"></section>\n  <section class=\"service-showcase\"></section>\n  <section class=\"lead-form\"></section>\n  <section class=\"partner-cta\"></section>\n  <footer></footer>\n</body>\n```\n\n```css\n:root {\n  --primary-blue: #2563eb;\n  --soft-blue: #dbeafe;\n  --text-dark: #1f2937;\n  --text-light: #6b7280;\n}\n\n@media (max-width: 768px) {\n  /* 모바일 우선 스타일 */\n}\n```",
+        "testStrategy": "다양한 디바이스에서 레이아웃 검증, CSS 유효성 검사, 접근성 테스트 (WAVE 도구 사용)",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Hero Section 및 Value Proposition 구현",
+        "description": "메인 히어로 영역과 ReFlexHire의 핵심 가치 제안 메시지 구현",
+        "details": "1. 강력한 헤드라인 및 서브헤드라인 작성\n2. CTA 버튼 ('데모 신청하기') 구현\n3. 배경 그라데이션 또는 이미지 적용\n4. 애니메이션 효과 추가 (CSS transitions)\n\n```html\n<section class=\"hero-section\">\n  <div class=\"container\">\n    <h1>채용 수수료를 복지 예산으로 전환하세요</h1>\n    <p>스타트업과 중소기업을 위한 혁신적인 채용-복지 통합 솔루션</p>\n    <button class=\"cta-primary\">무료 데모 신청</button>\n  </div>\n</section>\n```\n\n```css\n.hero-section {\n  background: linear-gradient(135deg, var(--primary-blue), var(--soft-blue));\n  min-height: 100vh;\n  display: flex;\n  align-items: center;\n}\n\n.cta-primary {\n  background: #ffffff;\n  color: var(--primary-blue);\n  padding: 16px 32px;\n  border-radius: 8px;\n  transition: transform 0.2s;\n}\n```",
+        "testStrategy": "CTA 버튼 클릭 테스트, 다양한 화면 크기에서 텍스트 가독성 확인, 애니메이션 성능 테스트",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "수수료 전환 구조 시각화 다이어그램 구현",
+        "description": "기존 채용 수수료 구조와 ReFlexHire 대체 구조를 비교하는 인터랙티브 다이어그램 제작",
+        "details": "1. Before/After 비교 다이어그램 설계\n2. CSS 기반 플로우차트 또는 SVG 다이어그램 구현\n3. 호버 효과 및 단계별 애니메이션 추가\n4. 모바일에서도 명확하게 보이는 반응형 설계\n\n```html\n<section class=\"value-structure\">\n  <div class=\"container\">\n    <h2>기존 방식 vs ReFlexHire</h2>\n    <div class=\"comparison-diagram\">\n      <div class=\"before-structure\">\n        <h3>기존 방식</h3>\n        <div class=\"flow-item\">채용 완료 → 수수료 지불 → 끝</div>\n      </div>\n      <div class=\"after-structure\">\n        <h3>ReFlexHire</h3>\n        <div class=\"flow-item\">채용 완료 → 복지 예산 전환 → 구성원 만족</div>\n      </div>\n    </div>\n  </div>\n</section>\n```\n\n```css\n.comparison-diagram {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 2rem;\n}\n\n.flow-item {\n  background: var(--soft-blue);\n  padding: 1rem;\n  border-radius: 8px;\n  transition: transform 0.3s;\n}\n```",
+        "testStrategy": "다이어그램 가독성 테스트, 애니메이션 부드러움 확인, 모바일에서 터치 인터랙션 테스트",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "서비스 예시 쇼케이스 섹션 구현",
+        "description": "실제 제공 가능한 복지/온보딩 제품들을 그리드 형태로 전시하는 섹션 구현",
+        "details": "1. 카드 기반 그리드 레이아웃 구성\n2. 각 서비스별 이미지, 제목, 설명 포함\n3. 호버 효과 및 카드 애니메이션 구현\n4. 필터링 기능 (복지/온보딩 카테고리별)\n\n```html\n<section class=\"service-showcase\">\n  <div class=\"container\">\n    <h2>이런 서비스들을 제공할 수 있습니다</h2>\n    <div class=\"service-grid\">\n      <div class=\"service-card\">\n        <img src=\"/images/wellness-package.jpg\" alt=\"웰니스 패키지\">\n        <h3>웰니스 패키지</h3>\n        <p>마사지, 요가 클래스 등 직원 건강 관리 서비스</p>\n      </div>\n      <div class=\"service-card\">\n        <img src=\"/images/onboarding-kit.jpg\" alt=\"온보딩 키트\">\n        <h3>온보딩 키트</h3>\n        <p>신입사원을 위한 맞춤형 환영 패키지</p>\n      </div>\n    </div>\n  </div>\n</section>\n```\n\n```css\n.service-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 2rem;\n}\n\n.service-card {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  transition: transform 0.3s, box-shadow 0.3s;\n}\n\n.service-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);\n}\n```",
+        "testStrategy": "카드 호버 효과 테스트, 그리드 반응형 동작 확인, 이미지 로딩 성능 테스트, 접근성 검증",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Formspree 기반 리드 수집 폼 구현",
+        "description": "고객사 담당자의 데모/문의 정보를 수집하는 폼을 Formspree API와 연동하여 구현",
+        "details": "1. Formspree 계정 생성 및 폼 엔드포인트 설정\n2. 회사명, 이메일, 메시지 필드 포함 폼 구성\n3. 클라이언트 사이드 유효성 검사 구현\n4. 제출 성공/실패 피드백 UI 구현\n5. contact.js 파일로 폼 로직 분리\n\n```html\n<section class=\"lead-form\">\n  <div class=\"container\">\n    <h2>무료 데모를 신청하세요</h2>\n    <form id=\"contactForm\" action=\"https://formspree.io/f/YOUR_FORM_ID\" method=\"POST\">\n      <input type=\"text\" name=\"company\" placeholder=\"회사명\" required>\n      <input type=\"email\" name=\"email\" placeholder=\"이메일\" required>\n      <textarea name=\"message\" placeholder=\"문의사항\" rows=\"4\"></textarea>\n      <button type=\"submit\">데모 신청하기</button>\n    </form>\n    <div id=\"form-status\"></div>\n  </div>\n</section>\n```\n\n```javascript\n// contact.js\ndocument.getElementById('contactForm').addEventListener('submit', async function(e) {\n  e.preventDefault();\n  const formData = new FormData(this);\n  \n  try {\n    const response = await fetch(this.action, {\n      method: 'POST',\n      body: formData,\n      headers: { 'Accept': 'application/json' }\n    });\n    \n    if (response.ok) {\n      document.getElementById('form-status').innerHTML = \n        '<p class=\"success\">문의가 성공적으로 전송되었습니다!</p>';\n      this.reset();\n    }\n  } catch (error) {\n    document.getElementById('form-status').innerHTML = \n      '<p class=\"error\">전송 중 오류가 발생했습니다.</p>';\n  }\n});\n```",
+        "testStrategy": "폼 제출 테스트, 이메일 수신 확인, 유효성 검사 동작 테스트, 에러 핸들링 시나리오 테스트",
+        "priority": "high",
+        "dependencies": [
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "파트너 CTA 영역 구현",
+        "description": "제휴 유통사/서비스사 확보를 위한 CTA 배너 및 문의 기능 구현",
+        "details": "1. 하단 영역에 파트너십 CTA 배너 배치\n2. 별도 파트너 문의 폼 또는 이메일 링크 구현\n3. 파트너 혜택 및 조건 간략 설명\n4. 시각적으로 구분되는 디자인 적용\n\n```html\n<section class=\"partner-cta\">\n  <div class=\"container\">\n    <div class=\"cta-content\">\n      <h2>파트너사가 되어주세요</h2>\n      <p>복지 서비스 제공업체라면 ReFlexHire와 함께 성장하세요</p>\n      <div class=\"partner-benefits\">\n        <div class=\"benefit-item\">새로운 판매 채널 확보</div>\n        <div class=\"benefit-item\">B2B 고객 접점 확대</div>\n        <div class=\"benefit-item\">마케팅 비용 절감</div>\n      </div>\n      <a href=\"mailto:partner@reflexhire.com\" class=\"cta-secondary\">\n        파트너십 문의하기\n      </a>\n    </div>\n  </div>\n</section>\n```\n\n```css\n.partner-cta {\n  background: linear-gradient(45deg, #1f2937, #374151);\n  color: white;\n  padding: 4rem 0;\n}\n\n.partner-benefits {\n  display: flex;\n  gap: 1rem;\n  margin: 2rem 0;\n}\n\n.benefit-item {\n  background: rgba(255, 255, 255, 0.1);\n  padding: 0.5rem 1rem;\n  border-radius: 20px;\n  font-size: 0.9rem;\n}\n\n.cta-secondary {\n  background: transparent;\n  border: 2px solid white;\n  color: white;\n  padding: 12px 24px;\n  text-decoration: none;\n  border-radius: 6px;\n  transition: all 0.3s;\n}\n```",
+        "testStrategy": "CTA 클릭 테스트, 이메일 링크 동작 확인, 반응형 레이아웃 검증, 대비 및 가독성 테스트",
+        "priority": "medium",
+        "dependencies": [
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "SEO 최적화 및 메타태그 구성",
+        "description": "검색 엔진 최적화를 위한 메타태그, 구조화된 데이터, sitemap 구현",
+        "details": "1. 기본 SEO 메타태그 구성 (title, description, keywords)\n2. Open Graph 및 Twitter Card 메타태그 추가\n3. 구조화된 데이터 (JSON-LD) 구현\n4. sitemap.xml 및 robots.txt 생성\n5. 이미지 alt 텍스트 및 semantic HTML 검증\n\n```html\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>ReFlexHire - 채용 수수료를 복지로 전환하는 B2B SaaS</title>\n  <meta name=\"description\" content=\"스타트업과 중소기업을 위한 혁신적인 채용-복지 통합 솔루션. 채용 수수료를 복지 예산으로 전환하여 구성원 만족도를 높이세요.\">\n  <meta name=\"keywords\" content=\"채용, 복지, B2B, SaaS, 스타트업, HR\">\n  \n  <!-- Open Graph -->\n  <meta property=\"og:title\" content=\"ReFlexHire - 채용 수수료를 복지로\">\n  <meta property=\"og:description\" content=\"채용 수수료를 복지 예산으로 전환하는 혁신적인 솔루션\">\n  <meta property=\"og:image\" content=\"https://reflexhire.com/images/og-image.jpg\">\n  <meta property=\"og:url\" content=\"https://reflexhire.com\">\n  \n  <!-- Structured Data -->\n  <script type=\"application/ld+json\">\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"SoftwareApplication\",\n    \"name\": \"ReFlexHire\",\n    \"description\": \"채용 수수료를 복지로 전환하는 B2B SaaS 플랫폼\",\n    \"url\": \"https://reflexhire.com\",\n    \"applicationCategory\": \"BusinessApplication\"\n  }\n  </script>\n</head>\n```",
+        "testStrategy": "Google Search Console 검증, 메타태그 미리보기 테스트, 구조화된 데이터 유효성 검사, 페이지 속도 테스트",
+        "priority": "medium",
+        "dependencies": [
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Google Analytics 및 추적 스크립트 구현",
+        "description": "방문자 행동 분석을 위한 Google Analytics 및 Meta Pixel 설치",
+        "details": "1. Google Analytics 4 계정 생성 및 추적 코드 설치\n2. Meta Pixel (Facebook) 설치\n3. 주요 이벤트 추적 설정 (폼 제출, CTA 클릭 등)\n4. 개인정보 보호 정책 및 쿠키 동의 배너 구현\n5. 추적 성능 모니터링 대시보드 설정\n\n```html\n<!-- Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'GA_MEASUREMENT_ID');\n</script>\n\n<!-- Meta Pixel -->\n<script>\n  !function(f,b,e,v,n,t,s)\n  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\n  n.callMethod.apply(n,arguments):n.queue.push(arguments)};\n  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\n  n.queue=[];t=b.createElement(e);t.async=!0;\n  t.src=v;s=b.getElementsByTagName(e)[0];\n  s.parentNode.insertBefore(t,s)}(window, document,'script',\n  'https://connect.facebook.net/en_US/fbevents.js');\n  fbq('init', 'PIXEL_ID');\n  fbq('track', 'PageView');\n</script>\n```\n\n```javascript\n// 이벤트 추적\nfunction trackFormSubmit() {\n  gtag('event', 'form_submit', {\n    'event_category': 'engagement',\n    'event_label': 'demo_request'\n  });\n  fbq('track', 'Lead');\n}\n\nfunction trackCTAClick(ctaType) {\n  gtag('event', 'click', {\n    'event_category': 'cta',\n    'event_label': ctaType\n  });\n}\n```",
+        "testStrategy": "Google Analytics 실시간 데이터 확인, 이벤트 추적 테스트, 개인정보 보호 정책 준수 검증, 쿠키 동의 플로우 테스트",
+        "priority": "medium",
+        "dependencies": [
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "최종 콘텐츠 검토 및 성능 최적화",
+        "description": "전체 사이트의 콘텐츠 품질 검토, 성능 최적화 및 배포 준비",
+        "details": "1. 모든 텍스트 콘텐츠 검토 및 교정\n2. 이미지 최적화 (WebP 포맷, 압축)\n3. CSS/JS 파일 최소화 (minification)\n4. 페이지 로딩 속도 최적화\n5. 크로스 브라우저 호환성 테스트\n6. 접근성 최종 검증 (WCAG 2.1 AA 준수)\n7. 모바일 사용성 테스트\n\n```css\n/* 성능 최적화 */\n.service-card img {\n  width: 100%;\n  height: 200px;\n  object-fit: cover;\n  loading: lazy; /* 지연 로딩 */\n}\n\n/* 애니메이션 성능 최적화 */\n.service-card {\n  will-change: transform;\n  transform: translateZ(0); /* 하드웨어 가속 */\n}\n\n/* 폰트 최적화 */\n@font-face {\n  font-family: 'NotoSansKR';\n  src: url('/fonts/NotoSansKR-Regular.woff2') format('woff2');\n  font-display: swap;\n}\n```\n\n```html\n<!-- 리소스 최적화 -->\n<link rel=\"preload\" href=\"/css/style.css\" as=\"style\">\n<link rel=\"preload\" href=\"/fonts/NotoSansKR-Regular.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n<link rel=\"dns-prefetch\" href=\"https://formspree.io\">\n```",
+        "testStrategy": "Lighthouse 성능 점수 90+ 달성, PageSpeed Insights 테스트, 다양한 브라우저에서 기능 테스트, 모바일 친화성 테스트, 접근성 자동화 테스트",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-23T21:46:26.820Z",
+      "updated": "2025-07-23T21:46:26.820Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

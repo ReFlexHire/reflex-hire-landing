@@ -1,0 +1,105 @@
+<context>
+
+# Overview
+**ReFlexHire**는 전통적인 채용 수수료(Success Fee)를 복지/온보딩 서비스 소비로 전환하는 B2B SaaS 플랫폼입니다.
+스타트업 및 중소기업 HR담당자를 주요 타겟으로 하며, 채용 이후 ‘구성원 만족’이라는 실질적인 가치를 제공합니다.
+이 플랫폼은 채용 완료 후 수수료를 지불하는 대신 동일 금액을 복지 예산으로 전환해 활용하도록 돕습니다.
+
+# Core Features
+
+## 1. 수수료 전환 구조 시각화
+- **What it does**: 기존 수수료 구조와 ReFlexHire의 대체 구조 비교
+- **Why it's important**: 고객의 인식 전환을 유도하는 핵심 UX
+- **How it works**: 상단에서 다이어그램 기반 시각화 및 설명
+
+## 2. 서비스 예시 쇼케이스
+- **What it does**: 실제로 제공 가능한 복지/온보딩 제품들을 전시
+- **Why it's important**: 플랫폼이 제공하는 ‘실물 가치’를 시각적으로 전달
+- **How it works**: 이미지, 설명 포함 그리드 UI 구성
+
+## 3. 리드 수집 폼
+- **What it does**: 고객사 담당자가 데모/문의 정보를 입력 가능
+- **Why it's important**: B2B 영업 기회 확보를 위한 핵심 요소
+- **How it works**: Formspree 또는 Email 연동 HTML 폼
+
+## 4. 파트너 CTA 영역
+- **What it does**: 제휴 유통사/서비스사 확보 유도
+- **Why it's important**: 플랫폼 수익 모델의 근간 확보
+- **How it works**: 하단 영역에 CTA 배너 배치
+
+# User Experience
+
+## User Personas
+- 스타트업 HR담당자: 복지 예산 운영 경험 부족, 빠른 솔루션 필요
+- 중소기업 CEO: 구성원 만족도와 브랜드 이미지를 함께 고려
+- 유통사 제휴 담당자: 판매처를 찾는 B2B 파트너
+
+## Key User Flows
+1. 랜딩 진입 → 구조 시각화 이해 → 상품 탐색 → 데모 신청 폼 작성
+2. 랜딩 진입 → 파트너 CTA 클릭 → 제휴 문의
+
+## UI/UX Considerations
+- 컬러: 신뢰 기반 블루 계열 + 복지/온보딩 이미지를 반영한 부드러운 톤
+- 반응형: 모바일 기준 설계
+- 인터랙션: 마진 흐름도와 구조 비교 섹션에 애니메이션 효과 적용
+</context>
+
+<PRD>
+
+# Technical Architecture
+
+## System Components
+- `index.html`, `style.css`, `contact.js` 구성의 정적 페이지
+- Formspree 또는 이메일 기반 폼 처리
+
+## Data Models
+- Lead: `company`, `email`, `message`, `timestamp`
+
+## APIs and Integrations
+- Formspree or Google Form API
+- Google Analytics / Meta Pixel
+
+## Infrastructure Requirements
+- GitHub Pages 기반 정적 호스팅
+- 도메인 연결: reflexhire.com (선택)
+
+# Development Roadmap
+
+## MVP Requirements
+- Hero Section + Value Proposition 문구
+- 복지 대체 구조 시각화 다이어그램
+- 서비스 예시 섹션
+- 리드 수집 폼
+- 기본 SEO 메타태그 구성
+
+## Future Enhancements
+- 다국어 지원 (일/영)
+- CMS 연동을 통한 서비스 추가 및 수정 (Headless Notion CMS 등)
+- GA 기반 방문자 행동 분석
+
+# Logical Dependency Chain
+
+1. GitHub Pages 기반 프레임 설정 및 테스트 배포
+2. index.html + style.css 구성
+3. Hero Section + 구조 설명 콘텐츠 제작
+4. 서비스 쇼케이스 및 CTA 영역 구성
+5. 리드 수집 폼 연동 (Formspree)
+6. SEO 및 Analytics 삽입
+7. 콘텐츠 추가 및 다국어 확장
+
+# Risks and Mitigations
+
+| 리스크 | 대응 방안 |
+|--------|-----------|
+| 구조 이해 어려움 | 구조 시각화/다이어그램 강조 |
+| 리드 전환 저조 | Hero Section에 강한 CTA 배치 |
+| 개발 리소스 부족 | React 없이 정적 HTML로 시작 |
+| SEO 및 분석 미흡 | GA 삽입 및 Meta 태그 구성 우선 적용 |
+
+# Appendix
+
+- 수익 구조 요약 이미지
+- Exit 전략 문서 기반 확장성 요약
+- 구조 비교 흐름도 PNG (외부 삽입 예정)
+
+</PRD>
