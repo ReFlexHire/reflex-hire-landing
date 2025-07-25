@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReFlexHire - 채용 수수료를 복지로 전환하는 B2B SaaS</title>
-    <meta name="description" content="스타트업과 중소기업을 위한 혁신적인 채용-복지 통합 솔루션. 채용 수수료를 복지 예산으로 전환하여 구성원 만족도를 높이세요.">
-    <meta name="keywords" content="채용, 복지, B2B, SaaS, 스타트업, HR">
+    <title>ReFlexHire - 채용 수수료를 온보딩 경험으로 전환하는 혁신적인 플랫폼</title>
+    <meta name="description" content="ReFlexHire는 채용 수수료를 신입사원의 온보딩 경험에 투자하는 혁신적인 B2B 채용 플랫폼입니다. 정액 10% 수수료로 예측 가능한 채용 비용과 차별화된 온보딩 서비스를 제공합니다.">
+    <meta name="keywords" content="채용, 온보딩, B2B, HR, 인재채용, 웰컴키트, 채용플랫폼">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="ReFlexHire - 채용 수수료를 복지로">
-    <meta property="og:description" content="채용 수수료를 복지 예산으로 전환하는 혁신적인 솔루션">
+    <meta property="og:title" content="ReFlexHire - 채용 수수료를 온보딩 경험으로">
+    <meta property="og:description" content="채용 수수료를 신입사원의 온보딩 경험에 투자하는 혁신적인 B2B 채용 플랫폼">
     <meta property="og:image" content="https://reflexhire.com/images/og-image.jpg">
     <meta property="og:url" content="https://reflexhire.com">
     <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ReFlexHire - 채용 수수료를 복지로">
-    <meta name="twitter:description" content="채용 수수료를 복지 예산으로 전환하는 혁신적인 솔루션">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -25,650 +20,1252 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "ReFlexHire",
-        "description": "채용 수수료를 복지로 전환하는 B2B SaaS 플랫폼",
+        "description": "채용 수수료를 온보딩 경험으로 전환하는 B2B 채용 플랫폼",
         "url": "https://reflexhire.com",
         "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
         "offers": {
             "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "KRW",
-            "description": "무료 데모 제공"
+            "price": "연봉의 10%",
+            "priceCurrency": "KRW"
         }
     }
     </script>
     
     <style>
-        /* CSS Reset and Base Styles */
+        /* CSS Variables */
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-purple: #7c3aed;
+            --accent-green: #10b981;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-blue: #2563eb;
-            --secondary-blue: #3b82f6;
-            --soft-blue: #dbeafe;
-            --light-blue: #eff6ff;
-            --text-dark: #1f2937;
-            --text-medium: #374151;
-            --text-light: #6b7280;
-            --white: #ffffff;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            min-height: 100vh;
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            color: var(--white);
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 0;
+            background: var(--bg-gradient);
+            color: white;
             position: relative;
             overflow: hidden;
         }
-
-        .hero-section::before {
+        
+        .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.15"/><circle cx="20" cy="80" r="0.5" fill="white" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.1;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
         }
-
+        
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         .hero-content {
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 800px;
         }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+        
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 1.5rem;
+            font-weight: 800;
             line-height: 1.2;
         }
-
-        .hero-content .subtitle {
+        
+        .hero .subtitle {
             font-size: 1.25rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            font-weight: 300;
         }
-
-        .cta-primary {
-            background: var(--white);
-            color: var(--primary-blue);
-            padding: 16px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Value Structure Section */
-        .value-structure {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .value-structure h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .comparison-diagram {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .structure-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        .structure-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .before-structure h3 {
-            color: #dc2626;
-        }
-
-        .after-structure h3 {
-            color: var(--primary-blue);
-        }
-
-        .flow-steps {
+        
+        .hero-stats {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
         }
-
-        .flow-item {
-            background: var(--light-blue);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
+        
+        .stat-item {
             text-align: center;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-            position: relative;
         }
-
-        .flow-item:not(:last-child)::after {
-            content: '↓';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5rem;
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
             color: var(--primary-blue);
         }
 
-        .flow-item:hover {
-            transform: scale(1.02);
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--bg-light);
         }
-
-        .before-structure .flow-item {
-            background: #fef2f2;
-            border-left: 4px solid #dc2626;
-        }
-
-        .after-structure .flow-item {
-            background: var(--light-blue);
-            border-left: 4px solid var(--primary-blue);
-        }
-
-        /* Service Showcase Section */
-        .service-showcase {
-            padding: 6rem 0;
-            background: var(--white);
-        }
-
-        .service-showcase h2 {
+        
+        .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--text-dark);
         }
-
-        .service-grid {
+        
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
+        
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .process-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .process-arrow {
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--primary-blue);
+            display: none;
+        }
+        
+        /* Value Proposition Section */
+        .value-prop {
+            padding: 80px 0;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        
+        .value-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .value-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .value-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+        
+        .value-list .icon {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .value-visual {
+            position: relative;
+        }
+        
+        .comparison-box {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+        
+        .comparison-box.traditional {
+            background: #fef3c7;
+        }
+        
+        .comparison-box.reflexhire {
+            background: #dbeafe;
+            transform: scale(1.05);
+        }
+        
+        .comparison-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
 
-        .service-card {
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+        /* Onboarding Packages Section */
+        .packages {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
         }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
-
-        .service-card-image {
+        
+        .package-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, var(--soft-blue), var(--light-blue));
+            background: var(--bg-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            color: var(--primary-blue);
+            color: white;
         }
-
-        .service-card-content {
+        
+        .package-content {
             padding: 1.5rem;
         }
-
-        .service-card h3 {
+        
+        .package-content h3 {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
             color: var(--text-dark);
         }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Lead Form Section */
-        .lead-form {
-            padding: 6rem 0;
-            background: var(--gray-50);
-        }
-
-        .lead-form h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--gray-100);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .form-submit:hover {
-            background: var(--secondary-blue);
-            transform: translateY(-1px);
-        }
-
-        #form-status {
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .success {
-            color: #059669;
-            font-weight: 500;
-        }
-
-        .error {
-            color: #dc2626;
-            font-weight: 500;
-        }
-
-        /* Partner CTA Section */
-        .partner-cta {
-            background: linear-gradient(45deg, var(--gray-800), var(--gray-900));
-            color: var(--white);
-            padding: 6rem 0;
-        }
-
-        .partner-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .partner-cta h2 {
-            font-size: 2.5rem;
+        
+        .package-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
+        
+        .package-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
 
-        .partner-cta .subtitle {
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: var(--primary-blue);
+            opacity: 0.2;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-
-        .partner-benefits {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
+        
+        /* Contact Form Section */
+        .contact {
+            padding: 80px 0;
         }
-
-        .benefit-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .contact-details li {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-gray);
+        }
+        
+        .contact-details .icon {
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+        }
+        
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
             font-weight: 500;
         }
-
-        .cta-secondary {
-            background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-            padding: 14px 32px;
-            text-decoration: none;
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
-
-        .cta-secondary:hover {
-            background: var(--white);
-            color: var(--gray-800);
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 14px 32px;
+            background: var(--bg-gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-submit:hover {
             transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-status.success {
+            background: #d1fae5;
+            color: #065f46;
+            display: block;
+        }
+        
+        .form-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            display: block;
         }
 
         /* Footer */
-        .footer {
-            background: var(--gray-900);
-            color: var(--white);
-            padding: 2rem 0;
-            text-align: center;
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0 20px;
         }
-
-        .footer p {
-            opacity: 0.8;
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: #9ca3af;
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+        @media (max-width: 1024px) {
+            .process-arrow {
+                display: none !important;
             }
-
-            .hero-content .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .comparison-diagram {
+            
+            .value-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partner-benefits {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .form-container {
-                padding: 2rem 1.5rem;
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: var(--shadow-md);
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero h1 {
                 font-size: 2rem;
             }
-
-            .value-structure h2,
-            .service-showcase h2,
-            .lead-form h2,
-            .partner-cta h2 {
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .section-title {
                 font-size: 2rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        /* Loading states */
+        
+        /* Loading Animation */
         .loading {
-            opacity: 0.6;
-            pointer-events: none;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo">ReFlexHire</div>
+            <ul class="nav-menu">
+                <li><a href="#how-it-works">서비스 소개</a></li>
+                <li><a href="#packages">온보딩 패키지</a></li>
+                <li><a href="#testimonials">고객 후기</a></li>
+                <li><a href="#contact">문의하기</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="메뉴 열기">☰</button>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>채용 수수료를 복지 예산으로 전환하세요</h1>
-                <p class="subtitle">스타트업과 중소기업을 위한 혁신적인 채용-복지 통합 솔루션</p>
-                <a href="#contact-form" class="cta-primary">무료 데모 신청</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Structure Section -->
-    <section class="value-structure">
-        <div class="container">
-            <h2>기존 방식 vs ReFlexHire</h2>
-            <div class="comparison-diagram">
-                <div class="structure-card before-structure">
-                    <h3>기존 방식</h3>
-                    <div class="flow-steps">
-                        <div class="flow-item">채용 완료</div>
-                        <div class="flow-item">수수료 지불</div>
-                        <div class="flow-item">끝</div>
+            <div class="hero-content fade-in">
+                <h1>채용 수수료를 온보딩 경험으로<br>전환하는 혁신</h1>
+                <p class="subtitle">ReFlexHire는 기존 채용의 '사람 연결'을 넘어 '사람의 여정'을 함께 설계합니다</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10%</span>
+                        <span class="stat-label">정액 수수료</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30%</span>
+                        <span class="stat-label">온보딩 크레딧 전환</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">87%</span>
+                        <span class="stat-label">신입사원 만족도</span>
                     </div>
                 </div>
-                <div class="structure-card after-structure">
-                    <h3>ReFlexHire</h3>
-                    <div class="flow-steps">
-                        <div class="flow-item">채용 완료</div>
-                        <div class="flow-item">복지 예산 전환</div>
-                        <div class="flow-item">구성원 만족 ↑</div>
-                    </div>
+                
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">무료 데모 신청</a>
+                    <a href="#how-it-works" class="btn btn-secondary">서비스 알아보기</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Showcase Section -->
-    <section class="service-showcase">
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
-            <h2>이런 서비스들을 제공할 수 있습니다</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-card-image">🧘</div>
-                    <div class="service-card-content">
-                        <h3>웰니스 패키지</h3>
-                        <p>마사지, 요가 클래스 등 직원 건강 관리 서비스로 팀의 웰빙을 향상시키세요.</p>
-                    </div>
+            <h2 class="section-title fade-in">ReFlexHire가 특별한 이유</h2>
+            
+            <div class="process-grid">
+                <div class="process-card fade-in">
+                    <div class="process-icon">💼</div>
+                    <h3>채용 요청 등록</h3>
+                    <p>기업이 채용 요청을 등록하면 검증된 리크루터 네트워크가 최적의 인재를 추천합니다</p>
+                    <span class="process-arrow">→</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-image">🎁</div>
-                    <div class="service-card-content">
-                        <h3>온보딩 키트</h3>
-                        <p>신입사원을 위한 맞춤형 환영 패키지로 첫 인상부터 특별하게 만들어보세요.</p>
-                    </div>
+                
+                <div class="process-card fade-in">
+                    <div class="process-icon">🎯</div>
+                    <h3>정액 10% 수수료</h3>
+                    <p>연봉과 무관하게 10%의 예측 가능한 수수료로 투명한 비용 구조를 제공합니다</p>
+                    <span class="process-arrow">→</span>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-image">🎓</div>
-                    <div class="service-card-content">
-                        <h3>교육 프로그램</h3>
-                        <p>직무 역량 강화를 위한 다양한 교육 과정과 워크샵을 제공합니다.</p>
-                    </div>
+                
+                <div class="process-card fade-in">
+                    <div class="process-icon">🎁</div>
+                    <h3>온보딩 크레딧 전환</h3>
+                    <p>수수료의 30%가 자동으로 온보딩 크레딧으로 전환되어 신입사원 경험에 투자됩니다</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-image">🍽️</div>
-                    <div class="service-card-content">
-                        <h3>식사 복지</h3>
-                        <p>건강한 도시락, 카페테리아 이용권 등 다양한 식사 혜택을 제공합니다.</p>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="value-prop">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-content fade-in">
+                    <h2>채용이 브랜드 자산이 되는 경험</h2>
+                    <p>기존의 채용 수수료는 단순한 비용이었습니다. ReFlexHire는 이를 신입사원의 첫인상과 조직 문화 적응을 위한 투자로 전환합니다.</p>
+                    
+                    <ul class="value-list">
+                        <li>
+                            <span class="icon">✓</span>
+                            <div>
+                                <strong>예측 가능한 비용 구조</strong><br>
+                                연봉 구간별 차등 수수료가 아닌 정액 10%로 명확한 예산 계획 가능
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">✓</span>
+                            <div>
+                                <strong>자동화된 온보딩 프로세스</strong><br>
+                                채용 완료와 동시에 온보딩 패키지가 자동으로 준비되어 HR 업무 부담 감소
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">✓</span>
+                            <div>
+                                <strong>파트너 마켓플레이스</strong><br>
+                                검증된 파트너사들의 다양한 온보딩 서비스를 한 곳에서 선택 가능
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-card-image">🏖️</div>
-                    <div class="service-card-content">
-                        <h3>휴가 패키지</h3>
-                        <p>국내외 여행, 리조트 이용권 등으로 직원들의 재충전 시간을 지원합니다.</p>
+                
+                <div class="value-visual fade-in">
+                    <div class="comparison-box traditional">
+                        <h4>🏢 기존 채용 방식</h4>
+                        <p>채용 완료 → 수수료 지불 → 끝</p>
+                        <p style="color: #92400e;">일회성 비용으로 소멸</p>
                     </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-card-image">💻</div>
-                    <div class="service-card-content">
-                        <h3>업무 환경 개선</h3>
-                        <p>최신 업무 도구, 인체공학적 의자, 모니터 등 업무 효율성을 높이는 장비를 제공합니다.</p>
+                    
+                    <div class="comparison-box reflexhire">
+                        <h4>🚀 ReFlexHire 방식</h4>
+                        <p>채용 완료 → 수수료 → 온보딩 투자</p>
+                        <p style="color: #1e40af;">지속적인 가치 창출</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lead Form Section -->
-    <section class="lead-form" id="contact-form">
+    <!-- Onboarding Packages Section -->
+    <section id="packages" class="packages">
         <div class="container">
-            <h2>무료 데모를 신청하세요</h2>
-            <div class="form-container">
-                <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <div class="form-group">
-                        <label for="company">회사명</label>
-                        <input type="text" id="company" name="company" required>
+            <h2 class="section-title fade-in">연봉 구간별 온보딩 패키지</h2>
+            <p style="text-align: center; color: var(--text-gray); margin-top: -1rem;">신입사원의 연봉에 따라 자동으로 매칭되는 맞춤형 온보딩 서비스</p>
+            
+            <div class="package-grid">
+                <div class="package-card fade-in">
+                    <div class="package-image">🎒</div>
+                    <div class="package-content">
+                        <h3>베이직 패키지</h3>
+                        <p>신입/주니어 레벨 (연봉 ~5천만원)</p>
+                        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                            <li>✓ 웰컴키트 (회사 굿즈, 문구류)</li>
+                            <li>✓ 첫 출근 커피/베이커리 쿠폰</li>
+                            <li>✓ 온보딩 가이드북</li>
+                        </ul>
+                        <span class="package-tag">30만원 상당</span>
                     </div>
-                    <div class="form-group">
-                        <label for="name">담당자명</label>
-                        <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="package-card fade-in">
+                    <div class="package-image">☕</div>
+                    <div class="package-content">
+                        <h3>스탠다드 패키지</h3>
+                        <p>경력직 (연봉 5천만원~1억원)</p>
+                        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                            <li>✓ 프리미엄 웰컴키트</li>
+                            <li>✓ 팀 런치 케이터링</li>
+                            <li>✓ 업무 장비 액세서리</li>
+                            <li>✓ 커피차 이벤트</li>
+                        </ul>
+                        <span class="package-tag">80만원 상당</span>
                     </div>
-                    <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="package-card fade-in">
+                    <div class="package-image">🎯</div>
+                    <div class="package-content">
+                        <h3>프리미엄 패키지</h3>
+                        <p>시니어/임원급 (연봉 1억원~)</p>
+                        <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                            <li>✓ 럭셔리 웰컴키트</li>
+                            <li>✓ ReFlex_OnTheGo 서비스</li>
+                            <li>✓ 팀빌딩 이벤트</li>
+                            <li>✓ 맞춤형 복지 컨설팅</li>
+                        </ul>
+                        <span class="package-tag">200만원 상당</span>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">연락처</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">문의사항</label>
-                        <textarea id="message" name="message" placeholder="회사 규모, 채용 계획, 관심 있는 복지 서비스 등을 알려주세요."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">데모 신청하기</button>
-                </form>
-                <div id="form-status"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Partner CTA Section -->
-    <section class="partner-cta">
+    <!-- Special Service Section -->
+    <section class="value-prop" style="background: var(--bg-light);">
         <div class="container">
-            <div class="partner-content">
-                <h2>파트너사가 되어주세요</h2>
-                <p class="subtitle">복지 서비스 제공업체라면 ReFlexHire와 함께 성장하세요</p>
-                <div class="partner-benefits">
-                    <div class="benefit-item">새로운 판매 채널 확보</div>
-                    <div class="benefit-item">B2B 고객 접점 확대</div>
-                    <div class="benefit-item">마케팅 비용 절감</div>
+            <div class="value-grid">
+                <div class="value-visual fade-in">
+                    <div style="background: white; padding: 3rem; border-radius: 12px; box-shadow: var(--shadow-lg); text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">🚘</div>
+                        <h3 style="font-size: 1.5rem; color: var(--text-dark);">ReFlex_OnTheGo</h3>
+                        <p style="color: var(--text-gray); margin-top: 1rem;">프라이빗 리무진 기반 모바일 인터뷰 서비스</p>
+                    </div>
                 </div>
-                <a href="mailto:partner@reflexhire.com" class="cta-secondary">파트너십 문의하기</a>
+                
+                <div class="value-content fade-in">
+                    <h2>핵심 인재를 위한 특별한 경험</h2>
+                    <p>임원급이나 핵심 인재 채용 시, 차별화된 브랜드 경험을 제공하는 이동형 인터뷰 서비스입니다.</p>
+                    
+                    <ul class="value-list">
+                        <li>
+                            <span class="icon">🎯</span>
+                            <div>
+                                <strong>프라이버시 보장</strong><br>
+                                현재 직장에서의 노출 위험 없이 편안한 환경에서 인터뷰 진행
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">🎯</span>
+                            <div>
+                                <strong>프리미엄 브랜드 경험</strong><br>
+                                첫 만남부터 특별한 인상을 남기는 차별화된 채용 프로세스
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon">🎯</span>
+                            <div>
+                                <strong>유연한 일정 조율</strong><br>
+                                후보자의 일정에 맞춰 이동하는 편리한 인터뷰 환경
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">고객사가 전하는 ReFlexHire</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "채용 수수료가 아깝지 않은 첫 경험이었습니다. 신입 개발자가 첫 출근 날 받은 웰컴키트와 팀 런치 이벤트로 빠르게 적응했고, 6개월이 지난 지금도 만족도가 매우 높습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JK</div>
+                        <div class="author-info">
+                            <h4>김지현</h4>
+                            <p>테크스타트업 A사 / HR 매니저</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "기존 헤드헌터 대비 비용은 절반, 하지만 가치는 두 배입니다. 온보딩 프로세스가 자동화되어 있어 HR 업무 부담이 크게 줄었고, 신규 입사자들의 반응도 뜨겁습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PD</div>
+                        <div class="author-info">
+                            <h4>박대표</h4>
+                            <p>중견기업 B사 / 인사팀장</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "리크루터로서 클라이언트에게 단순 인재 추천을 넘어 온보딩까지 제안할 수 있어 경쟁력이 생겼습니다. 성사율도 높아지고 클라이언트 만족도도 향상되었습니다."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CS</div>
+                        <div class="author-info">
+                            <h4>최수진</h4>
+                            <p>프리랜서 리크루터</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="fade-in">
+                <h2>채용을 브랜드 자산으로 만드는 첫걸음</h2>
+                <p>지금 바로 ReFlexHire와 함께 시작하세요</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">무료 상담 신청</a>
+                    <a href="#" class="btn btn-secondary">서비스 자료 다운로드</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">무료 데모 신청</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>ReFlexHire와 함께하세요</h3>
+                    <p>채용 수수료를 온보딩 경험으로 전환하는 혁신적인 플랫폼을 직접 경험해보세요.</p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <span class="icon">📧</span>
+                            <span>contact@reflexhire.com</span>
+                        </li>
+                        <li>
+                            <span class="icon">📱</span>
+                            <span>02-1234-5678</span>
+                        </li>
+                        <li>
+                            <span class="icon">📍</span>
+                            <span>서울특별시 강남구 테헤란로 123</span>
+                        </li>
+                        <li>
+                            <span class="icon">⏰</span>
+                            <span>평일 09:00 - 18:00</span>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">파트너사 문의</h4>
+                        <p style="color: var(--text-gray);">온보딩 서비스 제공업체라면 ReFlexHire의 파트너가 되어주세요.</p>
+                        <a href="mailto:partner@reflexhire.com" style="color: var(--primary-blue); text-decoration: none;">partner@reflexhire.com →</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="demoForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="company">회사명 *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">담당자명 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">이메일 *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="employees">직원 수</label>
+                            <select id="employees" name="employees">
+                                <option value="">선택해주세요</option>
+                                <option value="1-10">1-10명</option>
+                                <option value="11-50">11-50명</option>
+                                <option value="51-200">51-200명</option>
+                                <option value="201-500">201-500명</option>
+                                <option value="500+">500명 이상</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">문의사항</label>
+                            <textarea id="message" name="message" placeholder="채용 계획이나 궁금한 사항을 자유롭게 작성해주세요"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <span class="submit-text">무료 데모 신청하기</span>
+                            <span class="loading" style="display: none;"></span>
+                        </button>
+                        
+                        <div id="formStatus" class="form-status"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <p>&copy; 2024 ReFlexHire. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ReFlexHire</h3>
+                    <p>채용 수수료를 온보딩 경험으로 전환하는<br>혁신적인 B2B 채용 플랫폼</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>서비스</h4>
+                    <ul>
+                        <li><a href="#how-it-works">서비스 소개</a></li>
+                        <li><a href="#packages">온보딩 패키지</a></li>
+                        <li><a href="#">요금 정책</a></li>
+                        <li><a href="#">파트너십</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>고객 지원</h4>
+                    <ul>
+                        <li><a href="#">자주 묻는 질문</a></li>
+                        <li><a href="#contact">문의하기</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>회사 정보</h4>
+                    <ul>
+                        <li><a href="#">회사 소개</a></li>
+                        <li><a href="#">채용 정보</a></li>
+                        <li><a href="#">블로그</a></li>
+                        <li><a href="#">뉴스룸</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ReFlexHire. All rights reserved. | 사업자등록번호: 123-45-67890</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Form handling
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.textContent = '☰';
+                }
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Form submission handling
+        const demoForm = document.getElementById('demoForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitButton = demoForm.querySelector('.form-submit');
+        const submitText = submitButton.querySelector('.submit-text');
+        const loadingSpinner = submitButton.querySelector('.loading');
+        
+        demoForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const form = this;
-            const submitButton = form.querySelector('.form-submit');
-            const formStatus = document.getElementById('form-status');
-            
             // Show loading state
-            submitButton.textContent = '전송 중...';
-            submitButton.classList.add('loading');
+            submitButton.disabled = true;
+            submitText.style.display = 'none';
+            loadingSpinner.style.display = 'inline-block';
             
-            // Get form data
-            const formData = new FormData(form);
+            const formData = new FormData(demoForm);
             
             try {
-                const response = await fetch(form.action, {
+                const response = await fetch(demoForm.action, {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -677,82 +1274,127 @@
                 });
                 
                 if (response.ok) {
-                    formStatus.innerHTML = '<p class="success">문의가 성공적으로 전송되었습니다! 빠른 시일 내에 연락드리겠습니다.</p>';
-                    form.reset();
-                    
-                    // Track form submission
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submit', {
-                            'event_category': 'engagement',
-                            'event_label': 'demo_request'
-                        });
-                    }
-                    
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead');
-                    }
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = '신청이 완료되었습니다! 담당자가 곧 연락드리겠습니다.';
+                    demoForm.reset();
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Form submission failed');
                 }
             } catch (error) {
-                formStatus.innerHTML = '<p class="error">전송 중 오류가 발생했습니다. 이메일(contact@reflexhire.com)로 직접 연락주세요.</p>';
+                formStatus.className = 'form-status error';
+                formStatus.textContent = '전송 중 오류가 발생했습니다. 다시 시도해주세요.';
             } finally {
                 // Reset button state
-                submitButton.textContent = '데모 신청하기';
-                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+                submitText.style.display = 'inline';
+                loadingSpinner.style.display = 'none';
             }
         });
-
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Add hover effect to package cards
+        const packageCards = document.querySelectorAll('.package-card');
+        packageCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-5px) scale(1)';
             });
         });
-
-        // CTA click tracking
-        function trackCTAClick(ctaType) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'cta',
-                    'event_label': ctaType
-                });
-            }
+        
+        // Process arrows visibility on desktop
+        const processCards = document.querySelectorAll('.process-card');
+        if (window.innerWidth > 1024) {
+            processCards.forEach((card, index) => {
+                if (index < processCards.length - 1) {
+                    const arrow = card.querySelector('.process-arrow');
+                    if (arrow) {
+                        arrow.style.display = 'block';
+                    }
+                }
+            });
         }
-
-        // Add click tracking to CTAs
-        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(button => {
-            button.addEventListener('click', function() {
-                const ctaType = this.classList.contains('cta-primary') ? 'primary' : 'secondary';
-                trackCTAClick(ctaType);
-            });
-        });
-
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
+        
+        // Dynamic year in footer
+        const yearElement = document.querySelector('.footer-bottom p');
+        if (yearElement) {
+            const currentYear = new Date().getFullYear();
+            yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+        }
+        
+        // Form validation enhancement
+        const inputs = demoForm.querySelectorAll('input[required], textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#ef4444';
+                } else {
+                    input.style.borderColor = '#e5e7eb';
                 }
             });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+            
+            input.addEventListener('focus', () => {
+                input.style.borderColor = 'var(--primary-blue)';
+            });
+        });
+        
+        // Email validation
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                emailInput.style.borderColor = '#ef4444';
+            }
+        });
+        
+        // Phone number formatting
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (value.length <= 3) {
+                    value = value;
+                } else if (value.length <= 7) {
+                    value = value.slice(0, 3) + '-' + value.slice(3);
+                } else if (value.length <= 11) {
+                    value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7);
+                } else {
+                    value = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+                }
+            }
+            e.target.value = value;
+        });
+        
+        // Prevent form resubmission
+        let formSubmitted = false;
+        demoForm.addEventListener('submit', (e) => {
+            if (formSubmitted) {
+                e.preventDefault();
+                return false;
+            }
+            formSubmitted = true;
+            setTimeout(() => {
+                formSubmitted = false;
+            }, 5000);
         });
     </script>
 </body>

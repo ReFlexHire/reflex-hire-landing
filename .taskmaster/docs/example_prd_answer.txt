@@ -1,0 +1,436 @@
+<context>
+# Overview  
+[Provide a high-level overview of your product here. Explain what problem it solves, who it's for, and why it's valuable.]
+
+# Core Features  
+[List and describe the main features of your product. For each feature, include:
+- ReFlexHire is a next-generation recruitment platform that redefines the value of hiring fees. Instead of charging traditional commission rates, we offer a flat 10% placement fee regardless of the candidate’s salary. But more importantly, we turn that fee into tangible value for your team by providing customizable onboarding and employee care packages. Upon a successful hire, ReFlexHire allocates a portion of the placement fee to deliver welcome experiences such as coffee trucks, curated welcome kits, digital gifts, celebration items, and more—tailored to the new hire's role and salary range. Companies can choose from pre-designed packages or customize their own onboarding services using our exclusive partner mall. This B2B welfare platform not only adds a human touch to hiring but also strengthens employer branding from day one. By turning recruiting expenses into meaningful onboarding experiences, ReFlexHire bridges the gap between hiring and employee retention. Our platform is built to scale, with a modular architecture that allows for future expansion into hiring SaaS, performance tracking tools, or even our “ReFlex OnTheGo” mobile interview experience—an optional service to enhance candidate engagement during the interview stage.
+- Traditional recruitment fees often feel like a sunk cost—paid once and quickly forgotten. But what if that same cost could leave a lasting impression on both the company and the new hire? ReFlexHire transforms recruitment from a transactional expense into a strategic opportunity for employer branding and employee engagement. In an era where talent retention is just as critical as hiring, how a company welcomes its people matters more than ever. By reinvesting hiring fees into personalized onboarding experiences, companies can create a strong first impression, increase new hire satisfaction, and foster a sense of belonging from day one. This approach not only boosts internal morale but also differentiates companies in a competitive talent market. ReFlexHire helps growing businesses—especially startups and mid-sized companies—offer onboarding experiences that rival those of large enterprises, without additional budget or HR overhead. It’s not just about hiring the right person; it’s about keeping them.
+- ReFlexHire connects great talent with growing companies—then turns hiring fees into onboarding impact.
+  1. Recruitment Made Simple : Companies hire candidates through ReFlexHire’s vetted recruiter network at a competitive flat fee rate.
+  2. Fee Becomes a Benefit : Instead of charging a one-time fee and ending there, ReFlexHire converts a portion of the fee into onboarding credits—automatically applied to the new hire’s welcome experience.
+  3. Customizable Onboarding Store : Clients access a curated marketplace of onboarding services and welcome kits—ranging from personalized gift boxes to team lunch setups, IT gear, or branded swag.
+  4. Lasting First Impressions : Companies choose what fits their culture. ReFlexHire takes care of delivery, vendor coordination, and timing—ensuring the new hire feels appreciated from day one.]
+
+# User Experience  
+[Describe the user journey and experience. Include:
+- User Personas
+  1. Startup HR Manager – “Jenny”
+“We move fast and need talent yesterday, but we also want every hire to feel special.”
+Jenny is the sole HR lead at a fast-growing startup. She values streamlined hiring and employee experience but lacks the time or resources to coordinate onboarding gifts or services. ReFlexHire allows her to hire efficiently and impress new hires with zero extra workload.
+  2. Corporate Recruiter – “David”
+“We work with multiple agencies, but none offer post-hire support.”
+David manages hiring across departments in a mid-sized enterprise. He’s used to paying standard placement fees, but ReFlexHire's onboarding credits help him justify the cost and win buy-in from team leaders who value a memorable welcome for new employees.
+  3. Freelance Recruiter – “Soojin”
+“I want to offer clients more than just resumes—it’s my brand too.”
+Soojin is a seasoned independent recruiter. By using ReFlexHire, she can offer a unique value proposition: hiring support + onboarding experience bundled into one. It gives her a competitive edge in winning new clients.
+- Key User Flows
+  1. Client Company Hiring a Candidate via ReFlexHire
+A company posts a role or submits a hiring request. ReFlexHire matches them with a qualified recruiter. Once a candidate is hired, instead of paying a traditional fee, the client pays a flat fee (e.g., 10%)—part of which is converted into onboarding service credits. The company selects an onboarding package from the ReFlexHire vendor marketplace, creating a seamless hiring-to-welcome experience.
+  2. Recruiter Submitting a Candidate
+A verified recruiter receives a job brief through ReFlexHire. They submit qualified candidates via the platform. If their candidate is hired, the recruiter earns their fee minus the value of onboarding services, which the company redeems through ReFlexHire. This motivates recruiters to offer not just talent but full-cycle hiring support.
+  3. Client Browsing and Using Onboarding Services
+After a successful hire, the client is prompted to redeem onboarding credits. They browse curated services—from welcome kits to celebratory treats to mobile onboarding events—and place an order directly through the platform. The fulfillment is handled by ReFlexHire's vendor partners, ensuring quality and convenience.
+- UI/UX Considerations
+  1. Simple and Trust-Building Interface
+The platform must immediately convey trust and ease of use. Clear navigation, calm color schemes, and straightforward copywriting are essential to reduce friction, especially for HR managers who are not tech-savvy.
+  2. Dual-Facing Design (Client & Recruiter)
+The UI should support two primary user types:
+  ① Clients (companies hiring)
+  ② Recruiters (submitting candidates)
+      Each user should have a tailored dashboard showing relevant actions—e.g., "Track Candidate," "Select Onboarding Package," or    "Submit New Job."
+  3. Onboarding Credit Visualization
+After a successful hire, clients should clearly see their available onboarding credits and the catalog of services they can redeem. A clean, e-commerce-like redemption experience (filters, categories, checkout) will ensure conversion.
+  4. Mobile Accessibility
+Many recruiters and HRs work remotely or on-the-go. A responsive design optimized for mobile and tablet ensures broad usability without degrading experience.
+  5. Status Tracking and Transparency
+Real-time updates on hiring status, credit redemption, and delivery logistics (for onboarding kits or services) help create transparency and accountability—crucial for B2B trust.
+  6. Delightful Micro-Interactions
+Small UI touches—like animations on successful submissions or personalized welcome messages—can elevate the user experience, especially in onboarding moments.
+  7. Multi-Language & Localization Ready
+As ReFlexHire plans to expand globally, the UI must be built with multi-language support in mind, allowing for localization of content, currency, and service offerings.]
+</context>
+<PRD>
+# Technical Architecture  
+[Outline the technical implementation details:
+- System components
+  Frontend Web Interface
+
+React.js / Next.js (Recommended)
+For dynamic rendering, SEO-friendly marketing pages, and responsive dashboards.
+
+Admin & Client Portals
+
+Client (기업용) Portal: View candidates, track recruitment, redeem onboarding packages
+Recruiter Portal: Submit candidates, track placement status, manage performance
+Admin Panel: Oversee transactions, manage service partners, assign credits, and resolve issues.
+
+Backend Services
+Node.js / Express or Django (Python)
+API layer for handling business logic (candidate submission, credit tracking, onboarding package delivery).
+
+Authentication Module
+OAuth2 / JWT-based authentication
+Role-based access control for clients, recruiters, and admins
+
+Database
+PostgreSQL or MongoDB
+Stores user data, job postings, candidate tracking, transaction history, service redemptions, etc.
+
+Payment & Credit System
+Stripe / Toss / KCP Integration
+For charging recruitment fees
+Issuing service credits post-placement
+Handling onboarding service redemptions
+
+Credit Ledger System
+Tracks service redemption eligibility and usage per hire.
+Onboarding Service Marketplace Module
+
+Modular E-Commerce Engine
+Product/service catalog
+Filtering by category (e.g., Welcome Kit, Lunch Coupon, Team Event)
+
+Checkout & redemption workflow
+Service Partner API Hooks (optional)
+For logistics updates from onboarding kit or catering vendors.
+
+Notification System
+Email, Slack, and SMS Alerts
+For key actions (e.g., "Candidate Submitted", "Hire Confirmed", "Onboarding Item Shipped")
+
+Analytics & Reporting Engine
+
+Data Visualization Dashboard
+For internal admin to view KPIs (placements, conversion rates, service redemption rates)
+
+Client-facing Reports
+Downloadable summaries of usage, onboarding services received, and ROI estimation
+
+Cloud Infrastructure
+
+AWS / GCP / Vercel (for frontend deployment)
+Scalable hosting, database management, and security (SSL, WAF, backups)
+- Data models
+- APIs and integrations
+- Infrastructure requirements]
+
+# Development Roadmap  
+[Break down the development process into phases:
+
+- MVP requirements 
+  The Minimum Viable Product (MVP) for ReFlexHire is designed to validate the business model, demonstrate platform utility, and enable early customer adoption with a lean, high-impact feature set.
+
+1. Core Functional Modules
+A. Recruiter-Customer Matching Engine
+At the heart of ReFlexHire, the MVP will enable recruiters to submit candidate profiles to customer companies, track hiring progress, and close placements. This includes:
+Employer profile registration
+Job requisition form (simplified)
+Candidate submission and status tracking
+Offer management with basic messaging capability
+
+B. Onboarding Package Configuration
+Upon successful placement, employers will be guided through a service-based onboarding kit builder. The MVP supports:
+Selection of predefined onboarding packages by price tier (e.g., ₩300k, ₩500k, ₩1M)
+Optional customization of services (e.g., welcome kits, lunch coupons, branded merch, mobile interview support)
+Integration with vendor APIs or manual order fulfillment via admin dashboard
+
+C. Order & Service Fulfillment Dashboard
+Both the customer and internal admin will have access to a fulfillment interface:
+Admin order confirmation view
+Partner/vendor assignment and status updates
+Simple order tracking and delivery confirmation
+
+2. Account & Authentication
+Recruiter, Employer, and Admin roles with role-based access
+Email/password login with optional social sign-on (Google/LinkedIn)
+Password recovery and basic profile editing
+
+3. Payment & Invoicing
+Invoicing system for placement fees
+Pre-set onboarding budget tier selection tied to candidate salary
+Optional Stripe or Toss Payments integration for immediate payment processing
+
+4. Basic Analytics & Reporting
+Number of submissions per job
+Candidate placement rate by recruiter
+Onboarding service utilization rate
+
+5. Responsive Web Interface (Desktop & Mobile)
+Clean, intuitive UI for recruiters and employers
+Admin portal with order management and basic CMS for package updates
+
+MVP Objectives
+The MVP is intentionally scoped to:
+
+Prove that companies will adopt a lower-cost hiring model paired with onboarding services
+Validate demand for service-based reward models over traditional recruiter fees
+Onboard 3–5 early client companies and collect behavioral usage data
+Secure strategic vendor partnerships (onboarding goods/services)
+
+What’s Not in the MVP
+Full ATS functionality or public job board
+Advanced candidate search filters
+Multi-language support
+Automation of all vendor workflows (initially handled manually)
+
+- Future enhancements
+As ReFlexHire evolves beyond its initial MVP stage, the platform will introduce a series of strategic enhancements to broaden functionality, strengthen the ecosystem, and increase monetization opportunities.
+
+1. Advanced ATS Integration & Workflow Automation
+To support larger enterprise clients and professional recruiters, ReFlexHire will incorporate deeper integration with applicant tracking systems (ATS) such as Greenhouse, Lever, and Workable. This includes:
+
+Real-time job sync and candidate push APIs
+Workflow automation for interview stages and feedback
+Custom pipelines per company or recruiter
+
+2. Modular Onboarding Experience Builder
+Companies will gain access to a more flexible onboarding module:
+Build-your-own onboarding journeys using modular templates (e.g., welcome email, video intro, first-day checklist)
+
+Assign onboarding flows by team, department, or region
+Measure onboarding effectiveness with sentiment surveys and NPS tracking
+
+3. Service Marketplace Expansion
+A fully developed vendor marketplace will enable users to browse and book services directly:
+
+Verified partners in swag kits, welcome lunches, workspace setup, branded gifts
+User reviews, pricing filters, and preferred vendor tagging
+Smart matching based on company size, budget, and culture
+
+4. ReFlex OnTheGo – Mobile Interview Experience Service
+Introduce “ReFlex OnTheGo” as an optional premium service for companies seeking to offer top candidates a superior, mobile-based interview experience:
+
+Book a mobile interview room (luxury van or office pod) near candidate's location
+Integrated calendar + route optimization
+Ideal for confidential hires, senior candidates, or brand-sensitive meetings
+
+5. Hiring-as-a-Service Subscription Model
+Transform one-time recruiter fees into ongoing revenue through a hybrid pricing model:
+
+Monthly subscriptions for recruiter access, matched by onboarding credit
+Tiered plans based on hiring volume and service usage
+Usage-based analytics to trigger upselling and plan optimization
+
+6. Global Expansion Toolkit
+Prepare for international adoption by launching:
+
+Multilingual platform versions (Korean, English, Japanese, etc.)
+Tax and compliance modules for onboarding services in other regions
+Localization playbooks for key markets (e.g., onboarding culture in Japan vs. U.S.)
+
+- Do not think about timelines whatsoever -- all that matters is scope and detailing exactly what needs to be build in each phase so it can later be cut up into tasks
+
+Phase 1: Core Platform & MVP
+
+1.1. Candidate-Recruiter Matching Portal
+Recruiter registration + profile setup
+Job intake form builder for recruiters
+Candidate profile builder (CV parsing optional)
+Matching logic (basic filters: role, location, salary)
+Dashboard for recruiters to manage open roles and candidates
+
+1.2. Employer Access Interface
+Client company registration & profile setup
+Job requisition submission (to recruiter or open market)
+Matching results view & candidate shortlisting
+Internal comment and rating system on candidates
+
+1.3. Admin & Platform Management
+Super-admin dashboard for managing users, jobs, and payments
+CRM-lite: client status tracking, recruiter activity logging
+Tiered access controls (recruiter, client, admin)
+
+1.4. Basic Payments & Service Ordering
+Payment gateway integration (Stripe or Toss)
+Basic checkout for onboarding service packages
+Invoice generator & receipt history (for B2B compliance)
+
+Phase 2: Onboarding Package Engine
+
+2.1. Modular Onboarding Catalog
+Vendor service catalog setup (gifts, meals, experiences)
+Product/service listing with pricing, images, and delivery options
+Add-to-cart + wishlist features (for client HRs)
+
+2.2. Onboarding Journey Builder
+Timeline-style onboarding plan creator (Day 0, Week 1, Month 1)
+Assign different vendors/services to different time slots
+Export onboarding flow as PDF or internal doc
+
+2.3. Fulfillment & Vendor Management
+Partner/vendor login with order management system
+Order status tracking (requested, in progress, fulfilled)
+Feedback and ratings per vendor
+
+Phase 3: Communication & Engagement Layer
+
+3.1. Notification System
+Email and in-app notifications (job match, interview scheduled, order shipped)
+Notification preferences per user (frequency, type)
+
+3.2. Internal Messaging & Feedback Threads
+Recruiter ↔ Candidate messaging
+Recruiter ↔ Employer communication hub
+Interview feedback loop within job flow
+
+3.3. Sentiment & Experience Tracking
+Candidate satisfaction rating post-placement
+Employer onboarding experience feedback form
+Analytics dashboard showing CSAT/NPS trends
+
+Phase 4: Marketplace Expansion & Monetization
+
+4.1. Public Vendor Marketplace
+Searchable public onboarding vendor marketplace
+Filters by category, rating, price, company size suitability
+Service bundles and promotions
+
+4.2. Partner API for Vendor Integration
+APIs for external vendors to register services automatically
+Real-time inventory sync (optional)
+Commission tracking and payout module
+
+4.3. Recruiter Affiliate System
+Allow recruiters to earn service credits or commission
+Recruiter-referral program dashboard
+Track recruiter-driven vendor purchases
+Phase 5: Intelligence & SaaS Layer
+
+5.1. Insights & Reporting
+Job fill rate, average time-to-hire, vendor usage
+Role-based dashboards (Recruiter, Employer, Admin)
+Exportable reports for HR/Finance teams
+
+5.2. Smart Matching & Recommendation
+ML-based candidate-job matching suggestions
+Smart onboarding package suggestions based on role/industry
+Budget recommendation engine
+
+5.3. Embedded ATS Light (Optional)
+Create simple pipelines per job
+Drag-and-drop candidate movement across stages
+Custom stage labeling and interview tracking
+
+Phase 6: ReFlex OnTheGo (Mobile Interview Experience)
+
+6.1. Mobile Interview Booking System
+Fleet/location scheduling module
+Candidate location input + routing logic
+Book + cancel logic with notification workflows
+
+6.2. Fleet Vendor Coordination Tool
+Mobile interview partners login to accept/manage requests
+Map view + vehicle availability
+Interview materials checklist for onboard tablet]
+
+# Logical Dependency Chain
+[Define the logical order of development:
+- Which features need to be built first (foundation)
+  Here’s the prioritized ReFlexHire foundational build order (from absolute foundation to advanced modules):
+
+FOUNDATION: Core Infrastructure & Account Models
+These are critical before anything else can function.
+
+1. User Authentication & Role Management
+Recruiter, Employer, Admin account types
+Login/Signup + password recovery
+Session management (JWT/cookies)
+
+2. Database Architecture & Core Data Models
+Users, Jobs, Candidates, Companies
+Basic schema: recruiter ↔ job ↔ candidate ↔ client
+Role-based data access rules
+
+3. Admin Panel (Basic CMS)
+User management (approve/block/edit)
+Error logs / status monitoring
+Manual override tools (for troubleshooting)
+
+PHASE 1 DEPENDENCIES: Matching & Workflow Core
+These features are central to the value proposition and will power the MVP.
+
+4. Recruiter Dashboard
+Job intake form builder
+Candidate profile builder
+View jobs, candidates, progress
+
+5. Employer Dashboard
+Job requisition upload
+View candidates per job
+Leave feedback or shortlist
+
+6. Candidate-Jobs Matching Engine (Basic Filters)
+Industry, experience, location, salary
+Manual override for custom matching
+Match scoring optional at MVP
+
+MONETIZATION ENABLERS: Payment & Service Delivery
+Enable the financial model to work early, even if onboarding features are minimal.
+
+7. Basic Payment Gateway Integration
+Stripe/PayPal checkout
+Invoicing + transaction history
+Tie to “placement success” logic
+
+8. Onboarding Package Checkout (Basic)
+Static catalog of fixed packages
+Purchase flow + receipt
+Order confirmation page
+
+ADD-ONS & SCALE OUT: Marketplace & Engagement
+Once above are stable, we layer in these systems to add business scalability.
+
+9. Vendor Service Management
+Vendor onboarding + service listing
+Order receipt + status updates
+Rating + review engine
+
+10. Onboarding Journey Builder (Interactive Timeline)
+For employers to customize onboarding
+Assign services to dates
+PDF export or calendar sync (optional)
+
+11. Messaging & Notification Systems
+Candidate ↔ recruiter
+Recruiter ↔ client
+Order + placement status alerts
+
+FUTURE ENHANCEMENTS (Post-Scale)
+These are powerful but non-blocking. Build after product-market fit:
+
+12. Analytics & Reporting Dashboards
+
+13. Smart Matching & Recommendation (ML-based)
+
+14. ReFlex_OnTheGo (Fleet scheduling & mobile setup)
+
+15. Partner APIs for Vendors & Recruiters
+
+TL;DR – BUILD FIRST:
+1. Auth + Role System
+
+2. User & Job Data Models
+
+3. Recruiter + Employer Dashboards
+
+4. Matching Engine
+
+5. Basic Payment & Checkout
+
+6. Admin Tools
+
+- Getting as quickly as possible to something usable/visible front end that works
+- Properly pacing and scoping each feature so it is atomic but can also be built upon and improved as development approaches]
+
+# Risks and Mitigations  
+[Identify potential risks and how they'll be addressed:
+- Technical challenges
+- Figuring out the MVP that we can build upon
+- Resource constraints]
+
+# Appendix  
+[Include any additional information:
+- Research findings
+- Technical specifications]
+</PRD>
